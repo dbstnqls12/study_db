@@ -74,4 +74,10 @@ where 1=1
 	and seq =1;
 
 select * from test;    
+
+-- DDL : data definition language : db, table 컨트롤 : 주로 관리자, 선임들의 업무
+-- DML : data manipulation language : data : 후임들 : select insert update delete 
+-- DCL : data control language : 접근 권한, 커밋/롤백 : 커밋-실제 데이터가 수행, 롤백-돌리기  /  auto가 아니면  commit; rollback; 해줘야 됨
+    -- insert, update, delete -> data에 바로 영향을 미치는가? mysql은 한방에 되지만 오라클은 X -->실제 데이터 바뀌게하려면 커밋해야됨
+    
     
