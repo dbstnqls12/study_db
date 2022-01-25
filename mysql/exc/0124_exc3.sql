@@ -76,6 +76,7 @@ create table book2 (
 
 create table practice_room (
 	seq int, 
+    regdate datetime,
     image varchar(100),
     explanation varchar(400),
     space_type int,
@@ -92,6 +93,7 @@ create table practice_room (
     speaker int,
     wifi int
 );
+
 
 
 
