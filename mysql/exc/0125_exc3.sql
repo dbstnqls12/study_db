@@ -80,4 +80,33 @@ select * from test;
 -- DCL : data control language : 접근 권한, 커밋/롤백 : 커밋-실제 데이터가 수행, 롤백-돌리기  /  auto가 아니면  commit; rollback; 해줘야 됨
     -- insert, update, delete -> data에 바로 영향을 미치는가? mysql은 한방에 되지만 오라클은 X -->실제 데이터 바뀌게하려면 커밋해야됨
     
+alter table test add gender int;
+desc test;    
+
+update test set gender = 1
+where 1=1
+	and seq=4;
+    
+select * from test;    
+
+alter table test change gen gender int;
+
+insert into test (
+	name
+    ,tel
+    ,gender
+) values (
+	'cat'
+    ,123123
+    ,2
+);
+
+delete from test
+where 1=1
+	and seq=7;
+    
+select * from test;
+
+
+
     
