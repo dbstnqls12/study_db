@@ -93,6 +93,8 @@ create table practice_room (
     speaker int,
     wifi int
 );
+drop table cafe;
+drop table practice_room;
 
 
 
