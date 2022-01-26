@@ -25,12 +25,24 @@ insert into review5(
 	comment
     ,book4_copy1_no
 ) values (
-	'와너무재밌다'
-    ,3
+	'꿀잼'
+    ,4
 );
 
--- 점선 : nonidentifing
--- 실선 : identifing
 
 select * from book5;
 select * from review5;
+-- 점선 : nonidentifing :: 부모자식관계 :: 개발하기 불편
+-- 실선 : identifing
+
+select
+	a.name
+	,(select count(no) from review5 where book4_copy1_no = a.no) as count
+from book5 a;
+
+select
+	b.comment
+    ,a.name
+from book5 as a
+-- left join review5 as b on b.book4_copy1_no = a.no;
+inner join review5 as b on b.book4_copy1_no = a.no;
