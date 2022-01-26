@@ -26,7 +26,7 @@ insert into review5(
     ,book4_copy1_no
 ) values (
 	'꿀잼'
-    ,4
+    ,5
 );
 
 
