@@ -43,17 +43,19 @@ CREATE TABLE IF NOT EXISTS `world`.`infrCodeGroup` (
   PRIMARY KEY (`ifrcgSeq`))
 ENGINE = InnoDB;
 
+
 CREATE TABLE IF NOT EXISTS `world`.`infrCode` (
   `ifrcodeSeq` VARCHAR(50) NOT NULL,
   `name` VARCHAR(45) NULL,
   `ifrcgSeq` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`ifrcodeSeq`, `ifrcgSeq`),
+  PRIMARY KEY (`ifrcgSeq`, `ifrcodeSeq`),
   CONSTRAINT `fk_infrcode_infrCodeGroup1`
     FOREIGN KEY (`ifrcgSeq`)
     REFERENCES `world`.`infrCodeGroup` (`ifrcgSeq`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 insert into infrCodeGroup(
 	ifrcgSeq
@@ -68,15 +70,11 @@ insert into infrCode(
     ,name
     ,ifrcgSeq
 )values (
-	'2'
-    ,'휴면상태'
-	,'infra002'
+	'3'
+    ,'기타'
+	,'infra003'
 );
 
 
-
-
-desc infrCode;
-select * from code;
-select * from infrCode;
+select * from infrcode;
 select * from infrCodeGroup;
