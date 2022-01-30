@@ -75,6 +75,7 @@ insert into infrCode(
 	,'infra021'
 );
 
+update infrcode  set name='회사' where ifrcgSeq='infra010' and name='사무실'; 
 delete from infrcode where ifrcodeSeq='1' and ifrcgSeq='infra001';
 select * from infrcode;
 select * from infrCodeGroup;
