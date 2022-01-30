@@ -61,8 +61,8 @@ insert into infrCodeGroup(
 	ifrcgSeq
     ,name
 ) values (
-	'infra021'
-    ,'아이유무'
+	'infra022'
+    ,'취미'
 );
 
 insert into infrCode(
@@ -70,12 +70,14 @@ insert into infrCode(
     ,name
     ,ifrcgSeq
 )values (
-	'2'
-    ,'무'
-	,'infra021'
+	'8'
+    ,'그외'
+	,'infra022'
 );
 
 update infrcode  set name='회사' where ifrcgSeq='infra010' and name='사무실'; 
 delete from infrcode where ifrcodeSeq='1' and ifrcgSeq='infra001';
 select * from infrcode;
 select * from infrCodeGroup;
+desc infrmember;
+
