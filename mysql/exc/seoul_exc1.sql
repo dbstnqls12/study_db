@@ -70,11 +70,11 @@ insert into infrCode(
     ,name
     ,ifrcgSeq
 )values (
-	'3'
-    ,'기타'
-	,'infra003'
+	'2'
+    ,'무'
+	,'infra021'
 );
 
-
+delete from infrcode where ifrcodeSeq='1' and ifrcgSeq='infra001';
 select * from infrcode;
 select * from infrCodeGroup;
