@@ -137,9 +137,55 @@ CREATE TABLE IF NOT EXISTS `world`.`infrMemberAddress` (
 ENGINE = InnoDB;
 
 select * from infrcode;
+select * from infrcodeGroup;
 
+insert into infrmember(
+	adminNy
+    ,sleepNy
+    ,name
+    ,id
+    ,password
+    ,dob
+    ,genderCd
+    ,emailmarketing
+    ,smsmarketing
+    ,pushmarketing
+    ,period_personalinfoCd
+    ,pwdquestionCd
+    ,pwdanswer
+    ,jobCd
+    ,marriageCd
+    ,childrenCd
+    ,color
+    ,introduce
 
+) values(
+	1
+    ,1
+    ,'윤수빈'
+    ,'asd123'
+    ,'1111'
+    ,'2020-12-12'
+    ,2
+    ,1
+    ,1
+    ,1
+    ,5
+    ,1
+    ,'집'
+    ,1
+    ,2
+    ,2
+    ,'#ffffff'
+    ,'안녕하세요'
+  
+    
+);
 
-
+select 
+	a.ifrmmSeq
+    ,a.name
+    ,a.id
+   infrmember
 
 
