@@ -186,6 +186,19 @@ select
 	a.ifrmmSeq
     ,a.name
     ,a.id
-   infrmember
+   infrmember;
 
+CREATE TABLE IF NOT EXISTS `world`.`infrMemberHobby` (
+  `ifrmhSeq` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `hobbyCd` TINYINT NULL,
+  `hobby` VARCHAR(45) NULL,
+  `ifrmmSeq` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`ifrmhSeq`),
+  INDEX `fk_hobby_infrMember1_idx` (`ifrmmSeq` ASC) VISIBLE,
+  CONSTRAINT `fk_hobby_infrMember1`
+    FOREIGN KEY (`ifrmmSeq`)
+    REFERENCES `world`.`infrMember` (`ifrmmSeq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
