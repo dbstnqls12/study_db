@@ -136,6 +136,8 @@ CREATE TABLE IF NOT EXISTS `world`.`infrMemberAddress` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+select * from infrcode;
+
 
 
 
