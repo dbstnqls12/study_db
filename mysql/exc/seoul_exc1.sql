@@ -61,8 +61,8 @@ insert into infrCodeGroup(
 	ifrcgSeq
     ,name
 ) values (
-	'infra022'
-    ,'취미'
+	'infra005'
+    ,'번호용도'
 );
 
 insert into infrCode(
@@ -70,9 +70,9 @@ insert into infrCode(
     ,name
     ,ifrcgSeq
 )values (
-	'8'
-    ,'그외'
-	,'infra022'
+	'1'
+    ,'개인용'
+	,'infra005'
 );
 
 update infrcode  set name='회사' where ifrcgSeq='infra010' and name='사무실'; 

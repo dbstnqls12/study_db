@@ -24,28 +24,45 @@ select
     ,b.phoneNumber
 from infrmember a  
 left join infrmemberphone b on a.ifrmmSeq = b.ifrmmSeq 
-left join infrcode c on b.phonetypeCd = c.ifrcodeSeq 
+-- left join infrcode c on b.phonetypeCd = c.ifrcodeSeq 
 ;
+
+select * from infrmember;
+select * from infrmemberphone;
+select * from infrcode;
+
+
 
 select 
 	a.ifrmmSeq
 	,a.name
     ,a.id
-    ,(select c.name from infrcode c where ifrcgSeq='infra001' and c.ifrcodeSeq = a.adminNY) as '회원구분'
-	,(select c.name from infrcode c where ifrcgSeq='infra002' and c.ifrcodeSeq = a.sleepNy) as '회원상태'
+--    ,(select c.name from infrcode c where ifrcgSeq='infra001' and c.ifrcodeSeq = a.adminNY) as '회원구분'
+-- 	 ,(select c.name from infrcode c where ifrcgSeq='infra002' and c.ifrcodeSeq = a.sleepNy) as '회원상태'
     ,(select c.name from infrcode c where ifrcgSeq='infra003' and c.ifrcodeSeq = a.genderCd) as '성별'
     ,(select c.name from infrcode c where ifrcgSeq='infra004' and c.ifrcodeSeq = d.nationalityCd) as '국적'
     ,(select e.emailfull from infrmemberemail e where e.ifrmmSeq = a.ifrmmSeq) as '이메일'
+    ,(select c.name from infrcode c where ifrcgSeq='infra007' and c.ifrcodeSeq = f.mcompanyCd) as '통신사'
+    ,(select f.phoneNumber from infrmemberphone f where f.ifrmmSeq = a.ifrmmSeq) as '대표번호'
 from infrmember a
-left join infrcode c on c.ifrcodeSeq = a.adminNY
+-- left join infrcode c on c.ifrcodeSeq = a.adminNY
 left join infrmembernationality d on d.ifrmmSeq = a.ifrmmSeq
-
+left join infrmemberphone f on f.ifrmmSeq = a.ifrmmSeq
 ; 
+delete 
+from infrcodegroup 
+where ifrcgSeq='infra002';
+
+delete 
+from infrcode
+where ifrcgSeq='infra002';
 
 select * from infrcodegroup;
 select * from infrcode;
 select * from infrmember;
 select * from infrmembernationality;
 select * from infrmemberemail;
+select * from infrmemberphone;
 
-    
+
+   
