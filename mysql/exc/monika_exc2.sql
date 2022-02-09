@@ -113,4 +113,19 @@ now(),
 
 select * from infrauth;
 
+select * from infrmember;
+select * from infrmemberphone;
+select * from infrcode;
+select * from infrcodegroup;
+
+select
+	a.ifmmSeq
+	,a.ifmmName
+    ,a.ifmmId
+    ,(select b.ifcdName from infrcode as b where b.ifcgSeq=2 and b.ifcdOrder=a.ifmmGenderCd) as 성별
+    ,c.ifmpNumber
+from infrmember a
+left join infrmemberphone c on c.ifmmSeq= a.ifmmSeq and ifmpDefaultNy=0;
+    
+    
 
