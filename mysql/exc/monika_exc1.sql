@@ -39,7 +39,7 @@ INSERT INTO `nct`.`infrcode`
 `ifcgSeq`)
 VALUES
 (
-'나의비밀',
+'15년',
 1,
 5,
 0,
@@ -47,7 +47,7 @@ now(),
 now(),
 now(),
 now(),
-14);
+3);
 
 select * from infrcode;
 select * from infrcodeGroup;

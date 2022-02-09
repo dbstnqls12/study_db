@@ -123,6 +123,7 @@ select
 	,a.ifmmName
     ,a.ifmmId
     ,(select b.ifcdName from infrcode as b where b.ifcgSeq=2 and b.ifcdOrder=a.ifmmGenderCd) as 성별
+    ,(select b.ifcdNAme from infrcode as b where b.ifcgSeq=9 and b.ifcdOrder=c.ifmpTelecomCd) as 통신사
     ,c.ifmpNumber
 from infrmember a
 left join infrmemberphone c on c.ifmmSeq= a.ifmmSeq and ifmpDefaultNy=0;
