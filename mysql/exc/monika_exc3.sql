@@ -22,6 +22,6 @@ where 1=1
 order by
 	a.ifcgSeq asc
     -- a.ifcgSeq desc
-    , b.ifcdOrder
-    -- b.ifcdOrder desc 
+    -- , b.ifcdOrder
+    , b.ifcdOrder desc 
 ;
