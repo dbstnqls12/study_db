@@ -157,7 +157,7 @@ now(),
 now(),
 now(),
 now(),
-1);
+2);
 
 select * from infrmemberemail; 
 
@@ -177,17 +177,17 @@ INSERT INTO `nct`.`infrmemberphone`
 VALUES
 (
 1,
+21,
+25,
 2,
-1,
-1,
-'023881231',
+'1231231',
 0,
 now(),
 now(),
 now(),
 now(),
-1);
-
+3);
+update infrmemberphone set ifmpDeviceCd=3  where ifmmSeq=3;
 select * from infrmemberphone;
 
 INSERT INTO `nct`.`infrmemberaddressonline`
