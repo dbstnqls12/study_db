@@ -84,7 +84,7 @@ where
     
    -- and a.ifmmId like '%xd%' --속도가 오래걸림
 ;
-select * from infrmemberjoinqna;
+select * from infrmember;
 select concat('a','-','b');
 update infrmemberjoinqna set ifjqDelNy=1 where ifjqSeq=2;
 
