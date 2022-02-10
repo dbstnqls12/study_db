@@ -157,7 +157,7 @@ now(),
 now(),
 now(),
 now(),
-2);
+3);
 
 select * from infrmemberemail; 
 
@@ -176,11 +176,11 @@ INSERT INTO `nct`.`infrmemberphone`
 `ifmmSeq`)
 VALUES
 (
-1,
-21,
-25,
+0,
 2,
-'1231231',
+3,
+2,
+'0101231231',
 0,
 now(),
 now(),
@@ -206,7 +206,7 @@ INSERT INTO `nct`.`infrmemberaddressonline`
 VALUES
 (
 2,
-1,
+0,
 3,
 'asd123',
 '홍보용',
@@ -215,7 +215,7 @@ now(),
 now(),
 now(),
 now(),
-1);
+3);
 
 INSERT INTO `nct`.`infrmemberjoinqna`
 (
@@ -236,7 +236,7 @@ now(),
 now(),
 now(),
 now(),
-1);
+3);
 
 INSERT INTO `nct`.`infrmemberhobby`
 (
@@ -280,7 +280,7 @@ VALUES
 0,
 2,
 '회사',
-'경기도',
+'서울',
 '뭔빌딩 101호',
 '03335',
 0,
@@ -288,9 +288,9 @@ now(),
 now(),
 now(),
 now(),
-1);
+3);
 
-select * from infrmemberaddress;
+select * from infrmember;
 
 INSERT INTO `nct`.`infrmembernationality`
 (
