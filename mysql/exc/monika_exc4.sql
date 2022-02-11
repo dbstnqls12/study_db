@@ -9,25 +9,36 @@ select
     ,a.ifmmGenderCd
     ,(select b.ifcdName from infrcode b where a.ifmmGenderCd = ifcdSeq) as ifmmGenderCd
 	,a.ifmmDob
+    ,c.ifmeTypeCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 5 and b.ifcdOrder = c.ifmeTypeCd) as ifmeTypeCd  
     ,c.ifmeEmailFull
+    ,d.ifmpTypeCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 7 and b.ifcdOrder = d.ifmpTypeCd) as ifmpTypeCd
+    ,d.ifmpDeviceCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 8 and b.ifcdOrder = d.ifmpDeviceCd) as ifmpDeviceCd
+    ,d.ifmpTelecomCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 9 and b.ifcdOrder = d.ifmpTelecomCd) as ifmpTelecom
     ,d.ifmpNumber
     ,concat(substring(d.ifmpNumber,1,3),"-",substring(d.ifmpNumber,4,4),"-",substring(d.ifmpNumber,7,4)) as ifmpNamewithDash
-    ,(select b.ifcdName from infrcode b where b.ifcgSeq = 13 and b.ifcdOrder = e.ifmaTypeCd) as ifmaTypeCd
+	,e.ifmaTypeCd
+   ,(select b.ifcdName from infrcode b where b.ifcgSeq = 13 and b.ifcdOrder = e.ifmaTypeCd) as ifmaTypeCd
     ,e.ifmaTitle
     ,e.ifmaAddress1
     ,e.ifmaAddress2
+    ,a.ifmmSavedCd
     ,(select b.ifcdName from infrcode b where b.ifcdSeq = a.ifmmSavedCd) as ifmmSavedCd
+    ,a.ifmmMarriageCd
     ,(select b.ifcdName from infrcode b where b.ifcdSeq = a.ifmmMarriageCd) as ifmmMarriageCd
     ,a.ifmmChildrenNum
     ,f.ifaoTitle
+    ,f.ifaoTypeCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 10 and b.ifcdOrder = f.ifaoTypeCd) as ifaoTypeCd
+    ,f.ifaoSnsTypeCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 11 and b.ifcdOrder = f.ifaoSnsTypeCd) as ifaoSnsTypeCd
     ,f.ifaoUrl
+    ,g.ifmhHobbyCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 12 and b.ifcdOrder = g.ifmhHobbyCd) as ifmhHobbyCd
+    ,h.ifjqQuestionCd
     ,(select b.ifcdName from infrcode b where b.ifcgSeq = 14 and b.ifcdOrder = h.ifjqQuestionCd) as ifjqQuestionCd
     ,h.ifjqAnswer
     ,(select j.ifnaName from infrnationality j where j.ifnaSeq = i.ifnaSeq) as infrNationality
@@ -51,5 +62,7 @@ where
     and i.ifmnDefaultNy = 0
 ;    
 
-select * from infrmember;
+select * from infrauth;
 
+use nct;
+delete from infrauth where ifatSeq=1 ;
