@@ -109,6 +109,8 @@ select * from infrmenu;
 select * from infrauthmenu;
 select * from infrauthmember;
 
+desc infrauthmember;
+
 select 
 	a.ifatSeq
     ,(select ifatName from infrauth where ifatSeq = a.ifatSeq) as ifatName
