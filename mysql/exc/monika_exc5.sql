@@ -114,10 +114,12 @@ desc infrauthmember;
 select 
 	a.ifatSeq
     ,(select ifatName from infrauth where ifatSeq = a.ifatSeq) as ifatName
-    ,a.ifmuSeq
+    ,a.ifmuSeq 
     ,(select ifmuName from infrmenu where ifmuSeq = a.ifmuSeq) as ifmuName
-    ,(select ifauRoleCd from infrauthmenu where ifauSeq = a.ifauSeq) as ifauRoleCd
+    ,a.ifauRoleCd 
     ,(select ifcdName from infrcode where ifcgSeq =1 and ifcdOrder = a.ifauRoleCd)  as ifauRoleName
 from infrauthmenu a 
-	where a.ifatSeq =2
+-- 	where a.ifatSeq =2;
 ;    
+
+
