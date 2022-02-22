@@ -63,6 +63,6 @@ where
 ;    
 
 select * from infrauth;
-
+select * from infrnationality;
 use nct;
 delete from infrauth where ifatSeq=1 ;

@@ -3,7 +3,7 @@ select * from infrcode;
 
 update infrcode set ifcdOrder=6 where ifcgSeq=3 and ifcdOrder=5;
 
-
+use nct;
 select 
 	a.ifcgSeq
 	,a.ifcgName
@@ -25,7 +25,8 @@ order by
     , b.ifcdOrder
     -- , b.ifcdOrder desc 
 ;
-
+desc infrcodegroup;
+select * from infrcodegroup;
 select * from infrmember;
 select * from infrmembernationality;
 select * from infrnationality;
