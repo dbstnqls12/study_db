@@ -311,6 +311,7 @@ now(),
 3,
 1);
 use nct;
+select * from infrnationality;
 desc infrmember;
 
 
