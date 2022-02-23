@@ -26,7 +26,8 @@ order by
     -- , b.ifcdOrder desc 
 ;
 desc infrcodegroup;
-select * from infrcodegroup;
+use nct;
+select * from infrcode;
 select * from infrmember;
 select * from infrmembernationality;
 select * from infrnationality;
