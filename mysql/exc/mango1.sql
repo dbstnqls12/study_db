@@ -1,6 +1,5 @@
 use kbook;
 
-
 -- 책 정보 페이지 내용
 select 
 	a.tditTitle
@@ -18,4 +17,5 @@ from tradItem a
     left join tradauthor d on d.tditSeq = a.tditSeq
 where 1=1
 	
+
 ;
