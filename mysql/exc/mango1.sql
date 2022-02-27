@@ -11,10 +11,14 @@ select
     ,a.tditPublishingDate
 	,a.tditPrice
     ,(select b.ifcdName from infrcode b where b.ifcgSeq=13 and b.ifcdOrder = a.tditDiscountCd) as tditDisCount
-    
+    ,a.tditPrice-(a.tditPrice*(select b.ifcdReferenceI2 from infrcode b where b.ifcgSeq=13 and b.ifcdOrder = a.tditDiscountCd)) as tdirDiscountPrice
+	-- ,(select b.ifcdName from infrcode b where b.ifcgSeq=28 and b.ifcdOrder = g.tdpdDeliveryFeeCd)
+    ,adddate(curdate(), +2) as tditDeliveryDate
+
 from tradItem a
 	left join traditemreview c on c.tditSeq = a.tditSeq
     left join tradauthor d on d.tditSeq = a.tditSeq
+    -- left join tradproduct g on g.tditSeq = a.tditSeq
 where 1=1
 	
 
