@@ -53,9 +53,9 @@ from infrmember a
     left join infrmemberhobby g on g.ifmmSeq = a.ifmmSeq
     left join infrmemberjoinqna h on h.ifmmSeq = a.ifmmSeq
     left join infrmembernationality i on i.ifmmSeq = a.ifmmSeq
-where
-	c.ifmeDefaultNy = 0
-	and d.ifmpDefaultNy = 0
+where 1=1
+ 	and c.ifmeDefaultNy = 0
+ 	and d.ifmpDefaultNy = 0
 	and e.ifmaDefaultNy = 0
     and f.ifaoDefaultNy = 0
     and h.ifjqDelNy = 0
