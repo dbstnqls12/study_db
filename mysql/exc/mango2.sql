@@ -12,12 +12,10 @@ from
 			a.tditSeq
 			,a.tditTitle
 			,a.tditSubTitle
-		-- 	,(select b.ifcdName from infrcode b where b.ifcgSeq=26 and b.ifcdOrder = c.tditKcloverCd)
 			, c.tditKcloverCd
 			,(select b.ifcdReferenceI2 from infrcode b where b.ifcgSeq=26 and b.ifcdOrder = c.tditKcloverCd) as tditKcloverValue
-        -- 	,count(c.tditSeq)  -- 리뷰개수
-		-- 	,(select e.ifacName from infrauthorcode e where e.ifacSeq = d.tdatAuthorCd) as tditAuthor
-		-- 	,(select f.ifpcName from infrpublishercode f where f.ifpcSeq = a.tditPublisherCd) as tditPublisher
+		 	,(select e.ifacName from infrauthorcode e where e.ifacSeq = d.tdatAuthorCd) as tditAuthor
+		 	,(select f.ifpcName from infrpublishercode f where f.ifpcSeq = a.tditPublisherCd) as tditPublisher
 			,a.tditPublishingDate
 			,a.tditPrice
 		--    ,(select b.ifcdName from infrcode b where b.ifcgSeq=13 and b.ifcdOrder = a.tditDiscountCd) as tditDisCount
@@ -40,7 +38,7 @@ from
 		--    ,(select a.tditTitle from traditem a where a.tditSeq = h.tdsiBookCd) as tradseries
 		from tradItem a
 			left join traditemreview c on c.tditSeq = a.tditSeq
-		--    left join tradauthor d on d.tditSeq = a.tditSeq
+		    left join tradauthor d on d.tditSeq = a.tditSeq
 		--    left join tradrelateditem g on g.tditSeq = a.tditSeq
 		--    left join traditemkeyword k on k.tditSeq = a.tditSeq
 		-- 	  left join tradseries h on h.tditSeq = a.tditSeq
@@ -52,20 +50,10 @@ from
 group by aa.tditSeq
 ;
 
-select
-a.tditSeq
-, count(a.tditSeq)
--- count(tditSeq)
-, sum(c.tditKcloverCd)
-from tradItem a
-left join traditemreview c on c.tditSeq = a.tditSeq
-group by a.tditSeq
+SELECT
+	a.ifcgSeq
+	,a.ifcgName
+FROM kbook.infrCodeGroup a
+WHERE 1=1
+	AND ifcgDelNy=0
 ;
-
--- //////////////////////////////////////////////////////
-
-
-
-  
-
-    
