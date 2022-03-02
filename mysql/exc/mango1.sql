@@ -5,16 +5,15 @@ select
 tditSeq
 , aa.tditTitle
 , count(aa.tditSeq) as count
-, avg(aa.tditKcloverValue) as avg
+, avg(aa.tdirKcloverValue) as avg
 from 
 	(
 		select
 			a.tditSeq
 			,a.tditTitle
 			,a.tditSubTitle
-		-- 	,(select b.ifcdName from infrcode b where b.ifcgSeq=26 and b.ifcdOrder = c.tditKcloverCd)
-			, c.tditKcloverCd
-			,(select b.ifcdReferenceI2 from infrcode b where b.ifcgSeq=26 and b.ifcdOrder = c.tditKcloverCd) as tditKcloverValue
+			, c.tdirKcloverCd
+			,(select b.ifcdReferenceI2 from infrcode b where b.ifcgSeq=26 and b.ifcdOrder = c.tdirKcloverCd) as tdirKcloverValue
         -- 	,count(c.tditSeq)  -- 리뷰개수
 		-- 	,(select e.ifacName from infrauthorcode e where e.ifacSeq = d.tdatAuthorCd) as tditAuthor
 		-- 	,(select f.ifpcName from infrpublishercode f where f.ifpcSeq = a.tditPublisherCd) as tditPublisher
@@ -46,7 +45,7 @@ from
 		-- 	  left join tradseries h on h.tditSeq = a.tditSeq
 
 		where 1=1
-		-- 	and a.tditSeq=1
+		
 	) aa
     
 group by aa.tditSeq
