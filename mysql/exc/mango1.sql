@@ -61,6 +61,7 @@ left join traditemreview c on c.tditSeq = a.tditSeq
 group by a.tditSeq
 ;
 
+
 -- //////////////////////////////////////////////////////
 
 
