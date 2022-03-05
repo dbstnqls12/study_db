@@ -22,7 +22,19 @@ left join cjMovieCharacter d on d.cjmvSeq = a.cjmvSeq
 where 1=1
 	and c.cjmgDefaultNy=1
 ;    
--- 극장선택
+
+-- 극장정보 불러오기
+select 
+	a.cjmvTitle
+    ,(select c.cjtcName from cjTheaterCate c where c.cjtcSeq=b.cjmtTheaterPlace) as cjmtTheaterPlace
+    ,(select c.cjtcName from cjTheaterCate c where c.cjtcSeq=b.cjmtTheaterCate) as cjmtTheaterCate
+    ,b.cjmtDate
+    ,b.cjmtStartTime
+    ,b.cjmtStartTime+a.cjmvShowTimes
+from cjMovie a 
+left join cjMovieTheater b on b.cjmvSeq= a.cjmvSeq 
+where 1=1
+;
 
 
 
