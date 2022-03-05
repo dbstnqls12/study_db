@@ -30,7 +30,8 @@ select
     ,(select c.cjtcName from cjTheaterCate c where c.cjtcSeq=b.cjmtTheaterCate) as cjmtTheaterCate
     ,b.cjmtDate
     ,b.cjmtStartTime
-    ,b.cjmtStartTime+a.cjmvShowTimes
+    ,format(b.cjmtStartTime+a.cjmvShowTimes,"hh:mm:ss")
+    ,SELECT DATEADD(MINUTE, -10, '2021-07-12 22:30:00') AS [10분전] 
 from cjMovie a 
 left join cjMovieTheater b on b.cjmvSeq= a.cjmvSeq 
 where 1=1
