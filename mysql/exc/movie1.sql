@@ -67,7 +67,6 @@ from
 
 
 
-
 -- 영화예매 : 쿠폰 포인트
 select
 	a.cjmmSeq
