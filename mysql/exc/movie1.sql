@@ -23,21 +23,26 @@ where 1=1
 	and c.cjmgDefaultNy=1
 ;    
 
--- 극장정보 불러오기
+-- 영화예메 : 극장정보? 불러오기
 select 
 	a.cjmvTitle
     ,(select c.cjtcName from cjTheaterCate c where c.cjtcSeq=b.cjmtTheaterPlace) as cjmtTheaterPlace
     ,(select c.cjtcName from cjTheaterCate c where c.cjtcSeq=b.cjmtTheaterCate) as cjmtTheaterCate
     ,b.cjmtDate
+ 	,d.cjtiTheaterFloor
+    ,b.cjmtTheaterNumber
+    ,(select e.ifcdName from infrcode e where e.ifcgSeq=15 and e.ifcdOrder=d.cjtiTheaterTypeCd) as cjtiTheaterTypeCd
     ,b.cjmtStartTime
-    ,format(b.cjmtStartTime+a.cjmvShowTimes,"hh:mm:ss")
-    ,SELECT DATEADD(MINUTE, -10, '2021-07-12 22:30:00') AS [10분전] 
+    ,b.cjmtEndTime
+    ,d.cjtiNumberOfSeats
 from cjMovie a 
 left join cjMovieTheater b on b.cjmvSeq= a.cjmvSeq 
+left join cjTheaterinfo d on d.cjtiTheaterCate = b.cjmtTheaterCate
 where 1=1
+	and b.cjmtTheaterNumber = d.cjtiTheaterNumber
 ;
 
-
+-- 영화예메 : 결제정보
 
 
 
