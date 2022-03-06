@@ -43,6 +43,41 @@ where 1=1
 ;
 
 -- 영화예메 : 결제정보
+select
+	sum(cjmrTicketPrice)
+from
+	(select
+		d.cjmvTitle
+		,c.cjmtDate
+		,c.cjmtStartTime
+		,c.cjmtEndTime
+		,(select e.cjtcName from cjTheaterCate e where e.cjtcSeq=c.cjmtTheaterCate) as cjmtTheaterCate
+		,c.cjmtTheaterNumber
+		,(select b.ifcdName from infrCode b where b.ifcgSeq=16 and b.ifcdOrder=f.cjtiTicketTypeCd) as cjtiTicketTypeCd
+		,f.cjtiTicketCount
+		,(f.cjtiTicketCount*(select b.ifcdReferenceI1 from infrCode b where ifcgSeq=16 and b.ifcdOrder=f.cjtiTicketTypeCd)) as cjmrTicketPrice
+		,(select b.ifcdName from infrCode b where b.ifcgSeq=17 and b.ifcdOrder=a.cjmrPayCd) as cjmrPayCd
+	from cjMovieReservation a 
+		left join cjMovieTheater c on c.cjmtSeq=a.cjmrMovieTheater
+		left join cjMovie d on d.cjmvSeq = a.cjmvSeq
+		left join cjMovieTicket f on f.cjmrSeq=a.cjmrSeq
+	where 1=1
+	)aa
+;
 
+
+
+
+-- 영화예매 : 쿠폰 포인트
+select
+	a.cjmmSeq
+    ,a.cjmmName
+	,(select c.ifcdName from infrCode c where c.ifcgSeq=19 and c.ifcdOrder=b.cjmcTypeCd) as cjmcTypeCd
+	,(select c.ifcdReferenceI1 from infrCode c where c.ifcgSeq=19 and c.ifcdOrder=b.cjmcTypeCd) as cjmcCouponprice
+	,a.cjmmCjPoint
+from cjMember a
+left join cjMemberCoupon b on b.cjmmSeq = a.cjmmSeq
+where 1=1
+;
 
 
