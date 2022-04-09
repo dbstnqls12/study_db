@@ -66,3 +66,23 @@ select * from infrauth;
 select * from infrnationality;
 use nct;
 delete from infrauth where ifatSeq=1 ;
+
+use kbook;
+CREATE TABLE IF NOT EXISTS `kbMemberUploaded` (
+  `seq` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `type` TINYINT NULL,
+  `defaultNy` TINYINT NULL,
+  `sort` TINYINT NULL,
+  `originalName` VARCHAR(100) NULL,
+  `uuidName` VARCHAR(100) NULL,
+  `ext` VARCHAR(50) NULL,
+  `size` BIGINT NULL,
+  `delNy` TINYINT NOT NULL,
+  `pseq` BIGINT NOT NULL,
+  `regIp` VARCHAR(100) NULL,
+  `regSeq` BIGINT NULL,
+  `regDevice` TINYINT NULL,
+  `regDateTime` DATETIME NULL,
+  `regDateTimeSvr` DATETIME NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB;
